@@ -1,6 +1,6 @@
 # 关于本人：
 
-![test](my_photo.jpg | width=20)
+<img src="my_photo.jpg" width="250"/>
 
 (他是个很纠结的人，还没想好说什么)
 ---
@@ -25,6 +25,6 @@
 
 ## 微信公众号：物理学爬山虎
 
-(二维码)
+<img src="QR_code.jpg"/>
 ---
 
