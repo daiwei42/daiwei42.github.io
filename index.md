@@ -1,6 +1,6 @@
 # 关于本人：
 
-![alt text][my_photo]
+![alt text](my_photo.jpg=20x)
 
 (他是个很纠结的人，还没想好说什么)
 ---
@@ -28,4 +28,3 @@
 (二维码)
 ---
 
-[my_photo]: my_photo.jpg
