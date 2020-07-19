@@ -3,6 +3,7 @@
 <img src="my_photo.jpg" width="250"/>
 
 (他是个很纠结的人，还没想好说什么)
+
 ---
 
 # 关于科普
@@ -25,6 +26,7 @@
 
 ## 微信公众号：物理学爬山虎
 
-<img src="QR_code.jpg"/>
+<img src="QR_code.jpg" width="250"/>
+
 ---
 
