@@ -1,6 +1,6 @@
 # 关于本人：
 
-![test](my_photo.jpg)
+![test](my_photo.jpg | width=20)
 
 (他是个很纠结的人，还没想好说什么)
 ---
