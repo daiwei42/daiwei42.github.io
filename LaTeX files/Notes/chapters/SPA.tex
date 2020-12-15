@@ -1,0 +1,125 @@
+\begin{section}{SPA}
+
+SPA
+
+
+
+\begin{subsection}{Two-mode description}
+
+%As ilustrated in supplementary material of \cite{ImpendanceEngineering}, 
+It is sometimes convenient to describe an one-mode degenerate paramp with an effective two-mode model, the signal and idler as two seperate Bosonic modes (although they are actually slightly different frequency components of the same physical cavity mode). 
+
+
+
+
+\end{subsection}
+
+
+
+
+\begin{subsection}{Lumped SPA model}
+
+
+\begin{equation}\label{eq:lumped_participation}
+p = \frac{N L_S}{L_\mathrm{ext} + N L_S}
+\end{equation}
+
+\begin{equation}\label{eq:lumped_omega_a}
+\omega_a = \frac{1}{\sqrt{C(L+M L_S)}}
+\end{equation}
+
+\begin{equation}\label{eq:Hamiltonian}
+H/\hbar = \Delta a^\dagger a + g \left( a^2 + a^{\dagger2} \right) + \frac{K}{2} a^{\dagger2} a^2
+\end{equation}
+
+
+
+\begin{equation}\label{eq:U_S}
+U_S(\varphi_s) = -\alpha E_J \cos{\varphi_s}-3 E_J \cos{\frac{\varphi_\mathrm{ext}-\varphi_s}{3}}
+\end{equation}
+
+\begin{equation}\label{eq:U_S_alter}
+U_S(\tilde{\varphi}_s)/E_J = c_0 + c_2 \tilde{\varphi}_s^2 + c_3 \tilde{\varphi}_s^3 + c_4 \tilde{\varphi}_s^4 + \cdots
+\end{equation}
+
+\begin{equation}
+U(\varphi) = M U_S (\varphi_s[\varphi]) + \frac{1}{2}E_L (\varphi - M \varphi_s[\varphi])^2
+\end{equation}
+
+\begin{equation}
+U(\tilde{\varphi}) /E_J = \tilde{c}_0 + \tilde{c}_2 \tilde{\varphi}^2 + \tilde{c}_3 \tilde{\varphi}^3 + \tilde{c}_4 \tilde{\varphi}^4 + \cdots
+\end{equation}
+
+\end{subsection}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subsection}{Distributed SPA model}
+
+\begin{equation}
+L = \integral{\left[ \frac{c}{2}(\dt{\phi})^2 - \frac{1}{2l} (\dx{\phi})^2 \right]}{x}{-d_1}{0-}
+\end{equation}
+
+\begin{equation}
+y_c = \frac{N}{\pi}\sqrt{\frac{C_0}{C_S}}
+\end{equation}
+
+
+\begin{equation}\label{eq:JTL_EOM}
+- c_0 \partial_t^2 \Phi + c_S \partial_x^2 \partial_t^2 \Phi + \frac{1}{\ell_S} \partial_x^2 \Phi = 0
+\end{equation}
+
+
+\begin{equation}\label{eq:JTL_dispersion}
+\omega^2 = \frac{1}{\ell_S c_S} \frac{k^2}{k^2 + \frac{c_0}{c_S}}
+\end{equation}
+
+\begin{equation}\label{eq:Z_JTL}
+Z_S = \sqrt{L_S/C_0} 
+\end{equation}
+
+
+\end{subsection}
+
+
+
+
+
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%
+\begin{subsection}{JAMPA}
+
+\begin{equation}\label{eq:omega_p}
+\omega_p = \frac{1}{\sqrt{L_S C_S}}
+\end{equation}
+
+\begin{equation}\label{eq:y_c}
+y_c = \frac{N}{\pi}\sqrt{\frac{C_0}{C_S}}
+\end{equation}
+
+
+\begin{equation}\label{eq:JTL_EOM}
+- c_0 \partial_t^2 \Phi + c_S \partial_x^2 \partial_t^2 \Phi + \frac{1}{\ell_S} \partial_x^2 \Phi = 0
+\end{equation}
+
+
+\begin{equation}\label{eq:JTL_dispersion}
+\omega^2 = \frac{1}{\ell_S c_S} \frac{k^2}{k^2 + \frac{c_0}{c_S}}
+\end{equation}
+
+\begin{equation}\label{eq:Z_JTL}
+Z_S = \sqrt{L_S/C_0} 
+\end{equation}
+
+
+\end{subsection}
+
+
+
+
+
+
+
+\end{section}

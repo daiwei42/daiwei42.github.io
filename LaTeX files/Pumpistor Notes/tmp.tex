@@ -1,0 +1,456 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb}%数学符号相关宏包
+\usepackage{graphicx}
+\usepackage{indentfirst} %首行自动缩进
+\usepackage{graphics} %插入图片宏包
+\usepackage{subfigure}
+\usepackage{multirow} %表格合并行
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{cite}
+\usepackage{usual}
+
+\include{usual}
+
+\geometry{left=1.5cm,right=1.5cm,top=2.5cm,bottom=2.5cm}
+
+
+\title{Wei's notes on Quantum Amplifiers}
+\author{Dai Wei}
+
+\begin{document}
+
+\begin{section}{Parametric Amplifier}
+
+\begin{subsection}{Non-degenerate JPC}
+
+\begin{equation}
+H = \quadratic{Q_a}{C_a} + \quadratic{Q_b}{C_b} + \quadratic{Q_c}{C_c} + \quadratic{\Phi_a}{\Phi_a} + \quadratic{\Phi_b}{\Phi_b} + \quadratic{\Phi_c}{\Phi_c} + K \Phi_a \Phi_b \Phi_c
+\end{equation}
+
+Where 
+\[
+\omega_i = \frac{1}{\sqrt{L_i C_i}}, \quad Z_i = \sqrt{\frac{L_i}{C_i}}, \quad \Phi_i = \sqrt{\frac{\hbar Z_i}{2}} \( i + i^\dagger \), \quad Q_i = \ii \sqrt{\frac{\hbar}{2 Z_i}} \( i - i^\dagger \), \quad i \in \{ a,b,c \}
+\]
+\end{subsection}
+
+
+\begin{subsection}{4-wave mixing degenerate paramp}
+
+The Hamiltonian of a non-linear harmonic oscillator with 4th order non-linearity (Kerr) reads: 
+\begin{equation}
+H/\hbar = \omega_a \ad a + K \left( \ad +a \right)^4
+\end{equation}
+
+And we can get the QLE:  
+\begin{equation}
+\dot{a} = - \ii \omega_a a - 4\ii K  \left( \ad +a \right)^3 - \frac{\kappa}{2} a + \sqrt{\kappa} a_\in
+\end{equation}
+
+\end{subsection}
+
+
+\begin{subsection}{Two-mode description}
+
+%As ilustrated in supplementary material of \cite{ImpendanceEngineering}, 
+It is sometimes convenient to describe an one-mode degenerate paramp with an effective two-mode model, the signal and idler as two seperate Bosonic modes (although they are actually slightly different frequency components of the same physical cavity mode). 
+
+\end{subsection}
+
+
+\end{section}
+
+
+
+
+\begin{section}{SPA}
+
+
+\begin{subsection}{SNAIL}
+A Josephson junction of critical current $I_c$ can be described equivalently with a Josephson inductence: 
+\begin{equation}\label{eq:L_j}
+L_j = \frac{\Phi_0}{2\pi I_c} = \frac{\phi_0}{I_c}
+\end{equation}
+where $\Phi_0 = \frac{\hbar}{2e}$ being the reduced flux quantum, or with a Josephson energy: 
+\begin{equation}\label{eq:E_j}
+E_j = \phi_0 I_c = L_j I_c^2 = \frac{\phi_0^2}{L_j}
+\end{equation}
+Under such definition, we can write the Josephson potential as: 
+\begin{equation}\label{eq:U_j}
+U_j(\Phi) = - E_j \cos{\frac{2\pi \Phi}{\Phi_0}}
+\end{equation}
+where we usually denote RF flux across the junction $\Phi$ as $\varphi \equiv \frac{2\pi \Phi}{\Phi_0}$ for simplicity. 
+
+A SNAIL, consisting of three junctions with $E_j$ on one branch, and one junction with $\alpha E_j$ on the other branch, has the potential of: 
+\begin{equation}\label{eq:U_S_original}
+U_S(\varphi_s) = -\alpha E_j \cos{\varphi_s}-3 E_j \cos{\frac{\varphi_\mathrm{ext}-\varphi_s}{3}}
+\end{equation}
+where $\varphi_s$ is the reduced RF flux across the SNAIL, and there is an external magnetic flux $\varphi_\mathrm{ext}$ tunnelling through the loop formed by the SNAIL. 
+
+Expanding near the minimum $\Phi_s = \Phi_\mathrm{min}$: 
+\begin{equation}\label{eq:U_S}
+U_S(\tilde{\varphi}_s)/E_j = c_0 + \frac{c_2}{2!} \tilde{\varphi}_s^2 + \frac{c_3}{3!} \tilde{\varphi}_s^3 + \frac{c_4}{4!} \tilde{\varphi}_s^4 + \cdots
+\end{equation}
+where
+\begin{equation}\label{eq:varphi}
+\tilde{\varphi}_s \equiv 2\pi \frac{\Phi_s - \Phi_\mathrm{min}}{\Phi_0}
+\end{equation}
+
+
+\end{subsection}
+
+\begin{subsection}{Lumped SPA model}
+
+
+\begin{equation}\label{eq:lumped_participation}
+p = \frac{N L_S}{L_\mathrm{ext} + N L_S}
+\end{equation}
+
+\begin{equation}\label{eq:lumped_omega_a}
+\omega_a = \frac{1}{\sqrt{C(L+M L_S)}}
+\end{equation}
+
+\begin{equation}\label{eq:Hamiltonian}
+H/\hbar = \Delta a^\dagger a + g \left( a^2 + a^{\dagger2} \right) + \frac{K}{2} a^{\dagger2} a^2
+\end{equation}
+
+\begin{equation}
+U(\varphi) = M U_S (\varphi_s[\varphi]) + \frac{1}{2}E_L (\varphi - M \varphi_s[\varphi])^2
+\end{equation}
+
+\begin{equation}
+U(\tilde{\varphi})/E_j = \tilde{c}_0 + \frac{\tilde{c}_2}{2!} \tilde{\varphi}^2 + \frac{\tilde{c}_3}{3!} \tilde{\varphi}^3 + \frac{\tilde{c}_4}{4!} \tilde{\varphi}^4 + \cdots
+\end{equation}
+
+\end{subsection}
+
+\begin{subsection}{Distributed model}
+\begin{equation}
+\Lagrangian = \integral{\left[ \frac{c}{2}(\dt{\phi})^2 - \frac{1}{2l} (\dx{\phi})^2 \right]}{x}{-d_1}{0-} + \integral{\left[ \frac{c}{2}(\dt{\phi})^2 - \frac{1}{2l} (\dx{\phi})^2 \right]}{x}{0+}{d_2} - M U_S\left(\frac{\phi_+ - \phi_-}{M\phi_0}\right)
+\end{equation}
+at $x = -d_1$ and $x = d_2$, we have the boundary condition: 
+\begin{equation}
+\dx \phi = 0
+\end{equation}
+at $x = 0+$ and $x = 0-$, we have the current consevation relation: 
+\begin{equation}
+- U_S'\left(\frac{\phi_+ - \phi_-}{M \phi_0}\right) + \frac{1}{l}\dx\phi_- = 0
+\end{equation}
+\begin{equation}
+U_S'\left(\frac{\phi_+ - \phi_-}{M \phi_0}\right) - \frac{1}{l}\dx\phi_+ = 0
+\end{equation}
+
+\end{subsection}
+
+\begin{subsection}{Halved SPA model}
+
+For a perfectly halved SPA: 
+\begin{equation}
+\Lagrangian = \integral{\left[ \frac{c}{2}(\dt{\phi})^2 - \frac{1}{2l} (\dx{\phi})^2 \right]}{x}{-d}{0-} - M U_S(\frac{\phi_+ - \phi_-}{M\phi_0})
+\end{equation}
+at $x = -d$: 
+\begin{equation}\label{eq:BC-d}
+\dx \phi |_{x=-d} = 0
+\end{equation}
+at $x = 0-$, the current consevation relation is the same: 
+\begin{equation}\label{eq:BC0-}
+- U_S'\left(\frac{\phi_+ - \phi_-}{M \phi_0}\right) + \frac{1}{l}\dx\phi_- = 0
+\end{equation}
+and the boundary condition at $x = 0+$: 
+\begin{equation}\label{eq:short}
+\phi_+ = 0
+\end{equation}
+
+Expanding $U_S$ according to \eq{eq:U_S} and recall Josephson relations: 
+\begin{equation}
+E_j = \frac{\phi_0^2}{L_j}
+\end{equation}
+
+
+\eq{eq:BC0-} gives rise to: 
+\begin{equation}\label{eq:BC0--}
+- E_j \left( c_2(\frac{\phi_+ - \phi_-}{M\phi_0} - \varphi_{\mathrm{min}}) + \frac{c_3}{2!}(\frac{\phi_+ - \phi_-}{M\phi_0} - \varphi_{\mathrm{min}})^2 +  \frac{c_4}{3!}(\frac{\phi_+ - \phi_-}{M\phi_0} - \varphi_{\mathrm{min}})^3 \right)+ \frac{1}{l}\dx \phi_- = 0
+\end{equation}
+
+
+
+Expansion: 
+\begin{equation}
+\phi(x,t) = (A_0 + B_0 x) + \sum_{n=1}^\inf{(A_n \cos k_n x + B_n \sin k_n x)\exp{j\omega_n t}} 
+\end{equation}
+Therefore, at $x = 0-$: 
+\begin{equation}
+\phi_-(t) = A_0 + \sum_{n=1}^\inf{A_n \exp{j\omega_n t}} 
+\end{equation}
+and 
+\begin{equation}\label{eq:x<0}
+\dx \phi  = B_0 + \sum_{n=1}^\inf{ k_n ( - A_n \sin k_n x  + B_n \cos k_n x)\exp{j\omega_n t}} 
+\end{equation}
+which, combining with \eq{eq:BC0--}, gives:
+\begin{equation}\label{eq:0}
+\begin{aligned}
+E_j \left( c_2(\sum_{n=0}^\inf{\frac{- A_n \exp{j\omega_n t}}{M\phi_0}} - \varphi_{\mathrm{min}}) + \frac{c_3}{2!}(\sum_{n=0}^\inf{\frac{- A_n \exp{j\omega_n t}}{M\phi_0}} - \varphi_{\mathrm{min}})^2 +  \frac{c_4}{3!}(\sum_{n=0}^\inf{\frac{- A_n \exp{j\omega_n t}}{M\phi_0}} - \varphi_{\mathrm{min}})^3 \right) \\ 
+= \frac{1}{l} \left(B_0 + \sum_{n=1}^\inf k_n B_n\exp{j\omega_n t}\right)
+\end{aligned}
+\end{equation}
+
+In addition, from \eq{eq:BC-d}, we have: 
+\begin{equation}
+0 = \dx \phi |_{x=-d} = B_0 + \sum_{n=1}^\inf{ k_n (A_n \sin k_n d  + B_n \cos k_n d)\exp{j\omega_n t}} 
+\end{equation}
+such that $B_0 = 0$ and: 
+\begin{equation}\label{eq:1}
+A_n \sin k_n d  + B_n \cos k_n d = 0
+\end{equation}
+
+Starting from the linear part of \eq{eq:0}, we get: 
+\begin{equation}
+\frac{c_2}{L_j} \left( \frac{A_0}{M\phi_0} + \varphi_{\mathrm{min}} \right) + \frac{1}{l} B_0 = 0
+\end{equation}
+\begin{equation}\label{eq:2}
+\frac{c_2}{L_j} \frac{A_n}{M} + \frac{k_n}{l} B_n = 0
+\end{equation}
+
+Since $B_0 = 0$, we get the phase offset: 
+\begin{equation}
+\varphi_{\mathrm{min}} = - \frac{A_0}{M}
+\end{equation}
+
+For any n, \eq{eq:1} and \eq{eq:2} should be solved for all $A_n$ and $B_n$ to get the eigenmode, so: 
+\begin{equation}
+\left(
+\begin{matrix}
+\sin{k_n d}&\cos{k_n d}\\
+\frac{c_2}{M L_j}&\frac{k_n}{l}
+\end{matrix}
+\right)
+\left(
+\begin{matrix}
+A_n\\
+B_n
+\end{matrix}
+\right)=0
+\end{equation}
+where this determinant should be zero. Write $k_n = \omega_n/v$, $l=Z_c/v$, it gives us the eigenmode equation: 
+\begin{equation}\label{eq:halved}
+\frac{M L_j}{c_2 Z_C}\omega_n\tan{\frac{\omega_n d}{v}} = 1
+\end{equation}
+
+For fitting, denote $\gamma = \frac{2Z_C}{L_j}$, and $\omega_0$ as the frequency if there were not the SNAIL array (as we did for usual SPA). Notice that: 
+\begin{equation}\label{eq:f0}
+\frac{\omega_0}{v}d = \frac{\pi}{2}
+\end{equation}
+Then \eq{eq:halved} can be equivalently written into: 
+\begin{equation}\label{eq:eigen_naive}
+\frac{\gamma c_2}{2M} = \omega_n\tan{\frac{\pi}{2}\frac{\omega_n}{\omega_0}}
+\end{equation}
+which is almost the same as a perfectly-centered SPA (i.e. $\mu = 0.5$, see Vlad's note equation 336), except for the difference between $M$ and $2M$. This also makes sense: M for a halved-SPA should also be half of that for a perfectly-centered SPA in order to give the same eigenmodes. 
+
+\end{subsection}
+
+
+\begin{subsection}{Non-perfectly halved-SPA}
+
+Under the case of a non-perfect halved SPA, there would be a small imaginary impedance $jX$ at $0+$ instead of a perfect short. (For now I'm taking $X$ as a constant value, although in reality this would be a frequency dependent phase shift.)
+Then instead of \eq{eq:short}, boundary condition at $x=0+$ should become:
+\begin{equation}\label{eq:BC0+}
+U_S'\left(\frac{\phi_+ - \phi_-}{M \phi_0}\right) = \frac{1}{l}\dx\phi_+ = -\frac{\dt\phi_+}{jX}
+\end{equation}
+which leads to: 
+\begin{equation}\label{eq:BC0++}
+E_j \left( c_2(\frac{\phi_+ - \phi_-}{M\phi_0} - \varphi_{\mathrm{min}}) + \frac{c_3}{2!}(\frac{\phi_+ - \phi_-}{M\phi_0} - \varphi_{\mathrm{min}})^2 +  \frac{c_4}{3!}(\frac{\phi_+ - \phi_-}{M\phi_0} - \varphi_{\mathrm{min}})^3 \right) = -\frac{\dt\phi_+}{jX}
+\end{equation}
+
+The expansion for $x<0$ section transmission line \eq{eq:x<0}, still holds. Therefore, now combining \eq{eq:BC0--} and \eq{eq:BC0++}, we have a new equation that replaces \eq{eq:0}: 
+\begin{equation}
+\begin{aligned}
+E_j &\left( c_2(\sum_{n=0}^\inf{\frac{\phi_+ - A_n \exp{j\omega_n t}}{M\phi_0}} - \varphi_{\mathrm{min}}) + \frac{c_3}{2!}(\sum_{n=0}^\inf{\frac{\phi_+ - A_n \exp{j\omega_n t}}{M\phi_0}} - \varphi_{\mathrm{min}})^2 +  \frac{c_4}{3!}(\sum_{n=0}^\inf{\frac{\phi_+ - A_n \exp{j\omega_n t}}{M\phi_0}} - \varphi_{\mathrm{min}})^3 \right) \\ 
+&= \frac{1}{l} \left(B_0 + \sum_{n=1}^\inf k_n B_n\exp{j\omega_n t}\right)\\ 
+&= -\frac{1}{jX}\dt\phi_+
+\end{aligned}
+\end{equation}
+such that 
+\begin{equation}\label{eq:phi_+}
+\begin{aligned}
+\phi_+(t) &= - \frac{jXB_0}{l}t - \sum_{n=1}^\inf \frac{X k_n B_n}{\omega_n}\exp{j\omega_n t}\\
+&=\sum_{n=1}^\inf \frac{X \tan{k_n d}}{Z_C}A_n\exp{j\omega_n t}
+\end{aligned}
+\end{equation}
+where the second equality has used \eq{eq:BC-d}: the boundary condition at $x=-d$. 
+
+Therefore, when \eq{eq:2} becomes: 
+\begin{equation}\label{eq:2'}
+\frac{c_2}{M L_j}\left( 1 - \frac{X \tan{k_n d}}{Z_C}\right)A_n + \frac{k_n}{l}B_n = 0
+\end{equation}
+
+Using the same determinant to solve for eigenmodes, except that compared to now there's one more term in the bottom-left component in the determinant. And the final eigenmode equation is: 
+\begin{equation}\label{eq:real}
+\frac{M L_j}{c_2 Z_C}\omega_n\tan{\frac{\omega_n d}{v}} = 1 - \frac{X}{Z_C} \tan{\frac{\omega_n d}{v}}
+\end{equation}
+
+Using the same defined $\gamma$ and $\omega_0$ as  before, just pay attention that now ``bare mode'' frequency $\omega_0$ would no longer satisfy \eq{eq:f0}, instead it'll be $X$-dependent: 
+\begin{equation}
+\frac{\omega_0}{v}(d+d_X(\omega_0)) = \frac{\pi}{2}
+\end{equation}
+with $d_X(\omega) \equiv \frac{v}{\omega} \arctan{\frac{X(\omega)}{Z_C}}$ the effective electrical length of $jX(\omega)$. 
+
+While $X$ can be (and usually is) a function of frequency $\omega$, here we treat two simplest cases, i.e. $X(\omega) being constant (displaced)$ , and $d_X(\omega)$ being constant (a small inductance). 
+
+In the first case: 
+\begin{equation}\label{eq:f0_1}
+\frac{\omega_0}{v}d = \frac{\pi}{2} - \arctan{\frac{X}{Z_C}}
+\end{equation}
+
+In the second case: 
+\begin{equation}\label{eq:f0_2}
+\frac{\omega_0}{v}(d + d_X) = \frac{\pi}{2}
+\end{equation}
+here we can define $\mu \equiv \frac{d}{d+d_X}$, using the same symbol as the $\mu$ that characterize the asymmetry in SPA. 
+
+So \eq{eq:real} can be written as: 
+\begin{equation}
+\frac{\gamma c_2}{2M} = \omega_n\frac{\tan{\frac{\pi}{2}\frac{\mu \omega_n}{\omega_0}}}{1-\tan{\frac{\pi}{2}\frac{(1-\mu) \omega_n}{\omega_0}}\tan{\frac{\pi}{2}\frac{\mu \omega_n}{\omega_0}}}
+\end{equation}
+\begin{equation}
+\tan{\frac{\pi}{2}\frac{(1-\mu) \omega_n}{\omega_0}} + \tan{\frac{\pi}{2}\frac{\mu \omega_n}{\omega_0}} = \frac{2M}{\gamma c_2} \omega_n \tan{\frac{\pi}{2}\frac{\mu \omega_n}{\omega_0}}\tan{\frac{\pi}{2}\frac{\omega_n}{\omega_0}}
+\end{equation}
+\begin{equation}
+\frac{\gamma c_2}{2M} = \omega_n\frac{\sin{\frac{\pi}{2}\frac{\mu \omega_n}{\omega_0}}\cos{\frac{\pi}{2}\frac{(1-\mu) \omega_n}{\omega_0}}}{\cos{\frac{\pi}{2}\frac{\omega_n}{\omega_0}}}
+\end{equation}
+\begin{equation}
+\frac{\gamma c_2}{M} = \omega_n\left(\tan{\frac{\pi}{2}\frac{\mu \omega_n}{\omega_0}}+\frac{\sin{\frac{\pi}{2}\frac{(2\mu-1) \omega_n}{\omega_0}}}{\cos{\frac{\pi}{2}\frac{\omega_n}{\omega_0}}}\right)
+\end{equation}
+\end{subsection}
+
+
+\begin{subsection}{Capacitively coupled SPA}
+
+The old way to study the coupling is to calculate an effective mode L and C, and fitting the coupling C to the mearsured mode. 
+While it should be a better fitting if we can directly take that coupling into the theory.
+
+At $x=-d$, the boundary condition is no a perfect open, but instead: 
+\begin{equation}
+\frac{1}{l}\dx\phi_{-d} = -\frac{\dt\phi_{-d}}{Z_\mathrm{couple}}
+\end{equation}
+with $Z_\mathrm{couple} = 50\Omega + \frac{1}{j\omega C_c}$, is the impedance seen by the device at $x=-d$. 
+
+Again, putting in the expansion: 
+\begin{equation}
+\phi(x,t) = (A_0 + B_0 x) + \sum_{n=1}^\inf{(A_n \cos k_n x + B_n \sin k_n x)\exp{j\omega_n t}} 
+\end{equation}
+\begin{equation}\label{eq:x<0}
+\dx \phi  = B_0 + \sum_{n=1}^\inf{ k_n ( - A_n \sin k_n x  + B_n \cos k_n x)\exp{j\omega_n t}} 
+\end{equation}
+Now instead of \eq{eq:1}, we arrive at:
+\begin{equation}\label{eq:1''}
+\left(k_n A_n - \frac{j\omega_n l}{Z_\mathrm{couple}}B_n\right) \sin{k_n d} + \left(k_n B_n + \frac{j\omega_n l}{Z_\mathrm{couple}}A_n\right) \cos{k_n d} = 0
+\end{equation}
+This together with \eq{eq:2'} can give rise to the new derterminant and resulting in new eigenmode functions. 
+
+For an arbitrarily coupled, halved SPA:
+\begin{equation*}
+\begin{aligned}
+\left(\sin{k_n d} + \frac{j Z_C}{Z_\mathrm{couple}} \cos{k_n d}\right) A_n + \left(\cos{k_n d} - \frac{j Z_C}{Z_\mathrm{couple}} \sin{k_n d}\right) B_n &= 0\\
+\frac{c_2}{M L_j}\left( 1 - \frac{X \tan{k_n d}}{Z_C}\right)A_n + \frac{k_n}{l}B_n &= 0
+\end{aligned}
+\end{equation*}
+
+
+And this finally gives rise to: 
+\begin{equation}\label{eq:full}
+\frac{M L_j}{c_2 Z_C}\omega_n\tan{\frac{\omega_n d}{v}} -\left(1 - \frac{X}{Z_C} \tan{\frac{\omega_n d}{v}}\right) = \frac{j Z_C}{Z_C + 1/j\omega C_c}\left(\frac{X}{Z_C}\tan^2{\frac{\omega_n d}{v}} - \tan{\frac{\omega_n d}{v}} - \frac{M L_j}{c_2 Z_C}\omega_n\right)
+\end{equation}
+which requires the RHS (introduced due to coupling) to have a zero imaginary part, and real part equal to LHS (eigenmode condition without coupling). 
+
+BTW, here I'm using the assumption that the resonator has the same $Z_C$ as the TL session beyond coupling capacitor (that is supposed to be near 50$\Omega$), which doesn't always be the case, but I'm doing this to all my PPFSPA devices. 
+
+\begin{equation}\label{eq:full'}
+\frac{M L_j}{c_2 Z_C}\omega_n\tan{\frac{\omega_n d}{v}} = 1 - \frac{j Z_C}{Z_C + 1/j\omega C_c}\left(\tan{\frac{\omega_n d}{v}} + \frac{M L_j}{c_2 Z_C}\omega_n\right)
+\end{equation}
+
+
+
+\end{subsection}
+
+
+
+\begin{subsection}{Old way}
+As Vlad did in distributed-model SPA fitting, we rewrite the Lagrangian with respect to a canonical coordinate $\phi(-d, t)$, i.e. the flux at $x=-d$ point, where the device is capacitively coupled to the environment. 
+
+Having the Lagrangian, we can effectively express the system as a LC seen at this particular point, and then fit kappa with a coupling capacitor $C_c$. And update the mode frequency fitting according to the loaded-LC model, with L and C represented from distributed-model parameters. And update $C_c$ from kappa fitting...
+This iterative fitting is rather slow (runs more than 10min on PC), and sometimes doesn't give a good-looking fitting (fitted frequency being around 50MHz different from measured data). But let's first see how this works for PPFSPA: 
+
+We can take the time dependence $\exp{j\omega t}$ into $A_n(t)$, making it a dynamical coordinate. Since $B_n(t) = - \tan k_n d A_n(t)$, we have: 
+\begin{equation}
+\phi(x,t) = \sum_{n=1}^\inf{A_n(t) ( \cos k_n x - \tan k_n d \sin k_n x)} 
+\end{equation}
+When we consider only the first mode (keeping only $n=1$), this system actually has only one degree of freedom. And we should be able to represent the Lagrangian with respect to this coordinate $A_1(t)$: 
+
+\begin{equation}
+\begin{aligned}
+\Lagrangian &= \integral{\left[ \frac{c}{2}(\dt{\phi})^2 - \frac{1}{2l} (\dx{\phi})^2 \right]}{x}{-d}{0-} - M U_S(\frac{\phi_+ - \phi_-}{M\phi_0})\\
+&= \integral{\left[\frac{c}{2}\dot{A_1}^2( \cos k_1 x - \tan k_1 d \sin k_1 x)^2 - \frac{1}{2l} A_1^2 k_1^2(-\sin k_1 x - \tan k_1 d \cos k_1 x)^2\right]}{x}{-d}{0-} - M E_j \frac{c_2}{2} \left(\frac{0 - A_1}{M\phi_0}\right)^2\\
+&= \frac{c}{2}\dot{A_1}^2\left[ \frac{d}{2\cos^2 k_1 x} + \frac{1}{2 k_1} \left(\sin k_1 d \cos k_1 d + \frac{\sin^3 k_1 d}{\cos k_1 d}\right) \right] - \\
+&\qquad  \frac{1}{2l} A_1^2 k_1^2 \left[ \frac{d}{2\cos^2 k_1 x} - \frac{1}{2 k_1} \left(\sin k_1 d \cos k_1 d + \frac{\sin^3 k_1 d}{\cos k_1 d}\right) \right] - \frac{c_2}{2ML_j} A_1^2 \\
+&= \frac{c}{2}\dot{A_1}^2\left[ \frac{d}{2\cos^2 k_1 x} + \frac{1}{2 k_1} \left(\sin k_1 d \cos k_1 d + \frac{\sin^3 k_1 d}{\cos k_1 d}\right) \right] - \\
+&= \frac{\dot{A_1}^2}{4} \left( \frac{d c}{\cos^2 k_1 x} + \frac{\tan k_1 d}{\omega_1 Z_C}\right) - \frac{{A_1}^2}{4} {\omega_1}^2  \left( \frac{d c}{\cos^2 k_1 x} - \frac{\tan k_1 d}{\omega_1 Z_C} + \frac{2c_2}{ML_j} \right)
+\end{aligned}
+\end{equation}
+
+It makes more sense to use $\phi(-d, t)$ instead of $A_1(t)$ as the dynamical coordinate: 
+\begin{equation}
+\phi_\omega(t) \equiv \phi(-d, t) = A_1(t) ( \cos k_1 d + \tan k_1 d \sin k_1 d) = \frac{A_1(t)}{\cos k_1 d}
+\end{equation}
+And Lagrangian in terms of this coordinate is: 
+\begin{equation}
+\Lagrangian \equiv \frac{C_\omega \dot{\phi_\omega}^2}{2} - \frac{{\phi_\omega}^2}{2L_\omega}
+\end{equation}
+Therefore, we get: 
+\begin{equation}\label{eq:C_omega}
+C_\omega = \frac{dc}{2} + \frac{\sin 2 k_1 d}{4 \omega_1 Z_C}
+\end{equation}
+\begin{equation}\label{eq:L_omega}
+\begin{aligned}
+\frac{1}{L_\omega} &= {\omega_1}^2 \left(\frac{dc}{2} - \frac{\sin 2 k_1 d}{4 \omega_1 Z_C} + \frac{c_2 \cos^2 k_1 d}{{\omega_1}^2ML_j} \right)\\
+&=(\omega_1)^2 C_\omega
+\end{aligned}
+\end{equation}
+(for non-perfectly halved case, there's and extra term in L, but the expression for C doesn't change, and the last equality always holds.)
+
+
+\end{subsection}
+
+\begin{subsection}{New way}
+\end{subsection}
+
+\end{section}
+
+
+
+
+\begin{section}{Flip - Chip}
+
+\begin{equation}
+W_\eff = W + \frac{T}{\pi} \ln \left(1+ \frac{4}{\sqrt{\left(\frac{T}{H}\right)^2+\left(\frac{T}{W\pi + 1.1T \pi}\right)^2}}\right) \frac{\epsilon_1+\epsilon_2}{2 \pi \epsilon_1}
+\end{equation}
+
+\begin{equation}
+X_1 = \frac{4H}{W_\eff} \frac{14\epsilon_1 + 8\epsilon_2}{11\epsilon_1}
+\end{equation}
+
+\begin{equation}
+X_2 = \sqrt{X_1^2 + \frac{\epsilon_1+\epsilon_2}{2\epsilon_1}\pi^2}
+\end{equation}
+
+\begin{equation}
+Z = \frac{376.73\Omega}{2\pi\sqrt{2(\epsilon_1 + \epsilon_2)}}\ln\left(1+ \frac{4H(X_1+X_2)}{W_\eff}\right)
+\end{equation}
+
+
+\end{section}
+
+
+
+
+\end{document}

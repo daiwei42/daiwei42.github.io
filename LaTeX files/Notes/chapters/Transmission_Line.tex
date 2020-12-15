@@ -1,0 +1,187 @@
+%\begin{chapter}{Transmission Line}
+
+\begin{section}{Transmission Line Theory}
+
+\begin{subsection}{Classical TL}
+Wave amplitude $A^\rightarrow(x,t)$
+
+Fourier components of $\Phi$ 
+
+\begin{align}
+V(x=0,t) &= V_\in(t) + V_\out(t)\\
+I(x=0,t) &= \frac{1}{Z_C}(V_\out(t) - V_\in(t))
+\end{align}
+
+
+Power flow
+\end{subsection}
+
+\begin{subsection}{Canonical Quantization for infinite TL}
+Vlad's note p11
+
+Power flow
+
+Why the relation can't be transformed directly into operators
+\end{subsection}
+
+
+\begin{subsection}{Quantum Langevin Equation}
+For arbitrary system coupled to a bath with constant density of states, the time evolution of any operator $\hat{Y}$ is given by: 
+\begin{equation}
+\dot{Y} = \frac{\ii}{\hbar} [H_\sys, Y] + \frac{\ii}{2 \hbar Z_C}\left \{ \dot{\Phi} - V_\in, [\Phi, Y] \right \}
+\end{equation}
+
+For the system of an LC circuit, $H_\sys = \quadratic{Q}{C_a} +  \quadratic{\Phi}{L_a}$, and we can get the EOMs: 
+\begin{align}
+\dot{\Phi} &= \frac{Q}{C_a} \label{eq:Phidotdir} \\
+\dot{Q} &= -\frac{\Phi}{L_a} - \frac{1}{Z_C}(\dot{\Phi} - V_\in) \label{eq:Qdotdir}
+\end{align}
+
+Introducing annihilation/creation operator according to $\Phi = \Phi _\ZPF (a + \ad)$ and $Q =\ii Q_\ZPF (\ad - a)$, where
+\[
+\Phi_\ZPF = \sqrt{\frac{\hbar}{2} Z_\ZPF}, \qquad Q_\ZPF = \sqrt{\frac{\hbar}{2 Z_\ZPF
+}}
+\]
+and $Z_\ZPF = \sqrt{L_a/C_a}$. Then \eq{eq:Phidotdir} is equivalent to: 
+
+\begin{equation}\label{eq:a1}
+\dot{a} + \dot{a}^\dagger = \frac{\ii Q_\ZPF}{\Phi_\ZPF C_a} (\ad- a) = \ii \omega_a (\ad - a)
+\end{equation}
+
+We can decompose the Heisenberg picture operator $a(t)$ in Fourier space: 
+\begin{equation}\label{eq:aFT}
+a(t) = \frac{1}{2\pi} \integral{a[\omega] \exp{- \ii \omega t}}{\omega}{-\inf}{\inf}
+\end{equation} 
+
+And \eq{eq:a1} in Fourier domain can be written as: 
+\begin{equation}\label{eq:a2}
+\ad[-\omega] = -\frac{\omega-\omega_a}{\omega+\omega_a} a[\omega]
+\end{equation}
+
+
+
+And RWA, cavity theory......
+
+\end{subsection}
+
+
+
+\begin{subsection}{Arbitrary coupling}
+The total admittance seen by the system is: 
+\begin{equation}\label{eq:Ytot}
+Y_\tot[\omega] = \frac{1}{Z[\omega]+Z_C}
+\end{equation}
+
+
+And the Quantum Langevin Equations under arbitrary coupling, which are the generalized case of \eq{eq:Phidotdir} and \eq{eq:Qdotdir}, should be written as: 
+\begin{align}
+\dot{\Phi} &= \frac{Q}{C_a} \label{eq:Phidot} \\
+\dot{Q} &= -\frac{\Phi}{L_a} - I_\out(t) \label{eq:Qdot}\\
+I_\out[\omega] &= \left(j \omega \Phi[\omega] - V_\in[\omega]  \right) Y_\tot[\omega] \label{eq:Iout}
+\end{align}
+where we notice that the EOM of $\Phi$ doesn't change, so \eq{eq:a1} still stands. And \eq{eq:Qdot} can be written into: 
+
+\begin{equation}\label{eq:a3}
+- \ii (\dot{a}^\dagger - \dot{a}) = \omega_a (\ad + a) + \frac{1}{Q_\ZPF} I_\out
+\end{equation}
+
+Using \eq{eq:aFT} and \eq{eq:a2} we can obtain: 
+
+\begin{equation}
+\begin{aligned}
+- \ii (\dot{a}^\dagger - \dot{a}) &= \frac{1}{2\pi}\integral{\left(\omega a[\omega] \exp{-\ii \omega t} + \omega a^\dagger[\omega] \exp{\ii \omega t}\right)}{\omega}{-\inf}{\inf} \\
+&= \frac{1}{2\pi}\integral{\omega ( a[\omega] - a^\dagger[- \omega] )\exp{- \ii \omega t}}{\omega}{-\inf}{\inf} \\
+&= \frac{1}{2\pi}\integral{ \frac{2\omega^2}{\omega + \omega_a} a[\omega] \exp{j \omega t}}{\omega}{-\inf}{\inf}
+\end{aligned}
+\end{equation}
+
+\begin{equation}
+\begin{aligned}
+\dot{a}^\dagger + \dot{a} &= \frac{1}{2\pi}\integral{\left(a[\omega] \exp{-\ii \omega t} + \ad[\omega] \exp{\ii \omega t}\right)}{\omega}{-\inf}{\inf} \\
+&= \frac{1}{2\pi}\integral{( a[\omega] + \ad[- \omega] )\exp{- \ii \omega t}}{\omega}{-\inf}{\inf} \\
+&= \frac{1}{2\pi}\integral{ \frac{2\omega_a}{\omega + \omega_a} a[\omega] \exp{j \omega t}}{\omega}{-\inf}{\inf}
+\end{aligned}
+\end{equation}
+
+And using \eq{eq:Iout}, we can write down the last term in \eq{eq:a3} from anti-Fourier transform: 
+\begin{equation}
+\begin{aligned}
+I_\out(t) &= \frac{1}{2\pi}\integral{I_\out[\omega]\exp{j\omega t}}{\omega}{-\inf}{\inf} \\
+&= \frac{1}{2\pi}\integral{\left( j \omega \Phi_\ZPF (a[\omega] + \ad[-\omega]) - V_\in[\omega] \right) Y_\tot[\omega]\exp{j\omega t}}{\omega}{-\inf}{\inf}\\
+&= \frac{1}{2\pi}\integral{\left( j\frac{2\omega \omega_a}{\omega + \omega_a} \Phi_\ZPF a[\omega] - V_\in[\omega] \right) Y_\tot[\omega]\exp{j\omega t}}{\omega}{-\inf}{\inf}
+\end{aligned}
+\end{equation}
+
+Now we can finally rewrite the Quantum Langevin Equation \eq{eq:a3} in Fourier domain: 
+\begin{equation}
+\frac{2\omega^2}{\omega + \omega_a} a[\omega] =\frac{2\omega_a^2}{\omega + \omega_a}a[\omega] + \left( j\frac{2\omega \omega_a}{\omega + \omega_a} \Phi_\ZPF a[\omega] - V_\in[\omega] \right) \frac{Y_\tot[\omega]}{Q_\ZPF}
+\end{equation}
+\begin{equation}\label{eq:QLE}
+\left( \omega - \omega_a - j \frac{\omega \omega_a}{\omega + \omega_a} Z_\ZPF Y_\tot[\omega]\right) a[\omega] = - \frac{Y_\tot[\omega]}{2Q_\ZPF} V_\in[\omega]
+\end{equation}
+
+Coupling kappa for arbitrary coupling：
+
+\begin{equation}\label{eq:kappa}
+\kappa[\omega] = \frac{2 \omega_a \omega}{\omega_a + \omega} Z_\mathrm{ZPF} \mathrm{Re}Y_\tot[\omega]
+\end{equation}
+where for an resonance mode $\omega_a = 1 / \sqrt{L_a C_a}$    ,    $Z_\mathrm{ZPF} = 1/\omega_a C_a$
+
+And for direct coupling:$Y = 1/Z_C$ ,  $\kappa_d = 1/C_a Z_C$.
+
+For capacitive coupling: 
+\begin{equation}\label{eq:Y_c}
+Y_\tot[\omega] = \frac{1}{Z_C + \frac{1}{j \omega C_c}} \approx j \omega C_c (1-j \omega C_c Z_C)
+\end{equation}
+Therefore: 
+\begin{equation}\label{eq:kappa_c}
+\kappa_c = \frac{Z_C}{L_a}\frac{C_c^2}{C_a^2}
+\end{equation}
+
+
+
+
+
+
+
+
+
+When we describe the system dynamics, we usually include the driving in the Hamiltonian with a semiclassical term: 
+\begin{equation}\label{eq:Hdrive}
+H_\drive = \left( u_\omega \exp{j\omega t} +  u_\omega^* \exp{-j\omega t} \right)\left(a + \ad\right)
+\end{equation}
+where usually the drive is a single-frequency tone sent by the generator. $u_\omega$ is a classical amplitude that describes ''how hard we drive the system'', which intuitively should be proportional to the RF voltage we are sending in, and also related to the characteristic impedance of the transmission-line. Actually when we look at \eq{eq:QLE}, it's natural to define the right part of the equation as our classical drive strength: 
+\begin{equation}\label{eq:u}
+u_\omega = - \frac{Y_\tot[\omega]}{2Q_\ZPF} V_\in[\omega]
+\end{equation}
+
+The input power: 
+\begin{equation}\label{eq:Pin}
+P_\in = \quadratic{\abs{V_\in}}{Z_C} = \frac{\hbar \abs{u_\omega}^2}{\abs{Y_\tot[\omega]}^2}\frac{1}{Z_a Z_C}
+\end{equation}
+
+
+\begin{equation}\label{eq:P_p}
+ \abs{u_p}^2 =  \frac{\kappa_c}{\omega_a} P_p \frac{\omega_p^2}{\omega_a^2}
+\end{equation}
+%%%%%%%
+\begin{equation}
+Y_\tot[\omega] = \frac{1}{Z[\omega]+Z_C}
+\end{equation}
+
+\begin{equation}
+\left( \omega_p - \omega_a - j \frac{\omega_p \omega_a}{\omega_p + \omega_a} \frac{Z_\ZPF}{Z_C + 1/j \omega C_c}\right) \alpha_p = u_p
+\end{equation}
+
+
+\begin{equation}
+\alpha_p = \frac{1}{\omega_p-\omega_a} \sqrt{\frac{\kappa_c}{\omega_a}\frac{\omega_p^2}{\omega_a^2}P_p} \propto \sqrt{\frac{P_p}{Q_c}} \equiv \sqrt{P^\mathrm{enter}}
+\end{equation}
+
+\end{subsection}
+
+
+\end{section}
+
+
+%\end{chapter}
